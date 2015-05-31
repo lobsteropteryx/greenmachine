@@ -1,9 +1,13 @@
+/// <reference path="../annotations/requirejs/require.d.ts"/>
 /// <reference path="../annotations/jquery/jquery.d.ts"/>
 /// <reference path="../annotations/lodash/lodash.d.ts"/>
 /// <reference path="../annotations/backbone/backbone.d.ts"/>
+/// <amd-dependency path="text!templates/app-template.html" />
+
 
 import NestCollection = require('collections/nest-collection');
 import NestView = require('views/nest-view');
+var appTemplate = require('text!templates/app-template.html');
 
 export class AppView extends Backbone.View<any> {
 
@@ -31,9 +35,9 @@ export class AppView extends Backbone.View<any> {
 
         _.bindAll(this, 'addOne', 'addAll', 'render', 'toggleAllComplete');
 
-        this.input = this.$("#new-todo");
-        this.allCheckbox = <HTMLInputElement>this.$(".mark-all-done")[0];
-        this.statsTemplate = _.template($('#stats-template').html());
+        //this.input = this.$("#new-todo");
+        //this.allCheckbox = <HTMLInputElement>this.$(".mark-all-done")[0];
+        this.statsTemplate = _.template(appTemplate);
 
         this.Nests.bind('add', this.addNest);
         this.Nests.bind('all', this.render);
