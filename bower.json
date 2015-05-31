@@ -1,0 +1,31 @@
+{
+  "name": "greenmachine",
+  "version": "0.0.0",
+  "homepage": "https://github.com/lobsteropteryx/greenmachine",
+  "authors": [
+    "lobsteropteryx <ian.firkin@gmail.com>"
+  ],
+  "description": "turtle power",
+  "main": "app.ts",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "typescript",
+    "backbone",
+    "turtle"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "lodash": "~3.9.3"
+  }
+}

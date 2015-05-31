@@ -1,20 +1,11 @@
-/// <reference path="../lib/jquery/jquery.d.ts"/>
-/// <reference path="../lib/lodash/lodash.d.ts"/>
-/// <reference path="../lib/backbone/backbone.d.ts"/>
+/// <reference path="../typings/jquery/jquery.d.ts"/>
+/// <reference path="../typings/lodash/lodash.d.ts"/>
+/// <reference path="../typings/backbone/backbone.d.ts"/>
 
-import $ = require('jquery');
-import Backbone = require('backbone');
-import NestCollection = require('collections/nest-collection');
-import NestView = require('views/nest-view');
+import NestCollection = require('../collections/nest-collection');
+import NestView = require('../views/nest-view');
 
-export class AppView extends Backbone.View {
-
-    events = {
-        "keypress #new-todo": "createOnEnter",
-        "keyup #new-todo": "showTooltip",
-        "click .todo-clear a": "clearCompleted",
-        "click .mark-all-done": "toggleAllComplete"
-    };
+export class AppView extends Backbone.View<any> {
 
     input: JQuery;
     allCheckbox: HTMLInputElement;
@@ -26,12 +17,22 @@ export class AppView extends Backbone.View {
 
         this.Nests = new NestCollection.NestCollection();
 
+        // Apparently there are mucho problems with backbone events and ts
+        this.events = function () {
+            return {
+                "keypress #new-todo": "createOnEnter",
+                "keyup #new-todo": "showTooltip",
+                "click .todo-clear a": "clearCompleted",
+                "click .mark-all-done": "toggleAllComplete"
+            };
+        };
+
         this.setElement($("#content"), true);
 
         _.bindAll(this, 'addOne', 'addAll', 'render', 'toggleAllComplete');
 
         this.input = this.$("#new-todo");
-        this.allCheckbox = this.$(".mark-all-done")[0];
+        this.allCheckbox = <HTMLInputElement>this.$(".mark-all-done")[0];
         this.statsTemplate = _.template($('#stats-template').html());
 
         this.Nests.bind('add', this.addNest);
@@ -49,6 +50,7 @@ export class AppView extends Backbone.View {
         }));
 
         this.allCheckbox.checked = !remaining;
+        return this;
     }
 
     addNest(nest) {

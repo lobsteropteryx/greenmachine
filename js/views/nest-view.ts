@@ -1,23 +1,23 @@
-/// <reference path="../lib/jquery/jquery.d.ts"/>
-/// <reference path="../lib/lodash/lodash.d.ts"/>
-/// <reference path="../lib/backbone/backbone.d.ts"/>
+/// <reference path="../typings/jquery/jquery.d.ts"/>
+/// <reference path="../typings/lodash/lodash.d.ts"/>
+/// <reference path="../typings/backbone/backbone.d.ts"/>
 
-import $ = require('jquery');
-import _ = require('underscore');
-import Backbone = require('backbone');
-import Nest = require('models/nest-model');
+import Nest = require('../models/nest-model');
 
-export class NestView extends Backbone.View {
+export class NestView extends Backbone.View<Backbone.Model> {
 
     template: (data: any) => string;
     model: Nest.Nest;
     input: JQuery;
+    //events: () => any;
 
     constructor (options? ) {
         this.tagName = "li";
 
-        this.events = {
-            "click .check": "toggleDone",
+        this.events = function () {
+            return {
+                "click .check": "toggleDone"
+            }
         };
 
         super(options);
