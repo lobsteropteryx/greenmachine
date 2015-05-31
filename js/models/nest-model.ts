@@ -1,9 +1,10 @@
-export class Nest extends Backbone.Model {
+/// <reference path="../_references.d.ts" />
+class Nest extends Backbone.Model {
 
     defaults() {
         return {
             hatched: false
-        }
+        };
     }
 
     initialize() {
@@ -14,3 +15,5 @@ export class Nest extends Backbone.Model {
         this.set("hatched", true);
     }
 }
+
+export = Nest;

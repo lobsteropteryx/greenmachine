@@ -1,30 +1,28 @@
-/// <reference path="../lib/jquery/jquery.d.ts"/>
-/// <reference path="../lib/lodash/lodash.d.ts"/>
-/// <reference path="../lib/backbone/backbone.d.ts"/>
-
+/// <reference path="../_references.d.ts" />
 import $ = require('jquery');
 import Backbone = require('backbone');
-import NestCollection = require('collections/nest-collection');
-import NestView = require('views/nest-view');
+import Nest = require('../models/nest-model');
+import NestCollection = require('../collections/nest-collection');
+import NestView = require('./nest-view');
 
-export class AppView extends Backbone.View {
-
-    events = {
-        "keypress #new-todo": "createOnEnter",
-        "keyup #new-todo": "showTooltip",
-        "click .todo-clear a": "clearCompleted",
-        "click .mark-all-done": "toggleAllComplete"
-    };
+class AppView extends Backbone.View<Backbone.Model> {
 
     input: JQuery;
     allCheckbox: HTMLInputElement;
     statsTemplate: (params: any) => string;
-    Nests: NestCollection.NestCollection;
+    nests: NestCollection;
 
     constructor () {
+        this.events = <any>{
+            "keypress #new-todo": "createOnEnter",
+            "keyup #new-todo": "showTooltip",
+            "click .todo-clear a": "clearCompleted",
+            "click .mark-all-done": "toggleAllComplete"
+        };
+
         super();
 
-        this.Nests = new NestCollection.NestCollection();
+        this.nests = new NestCollection();
 
         this.setElement($("#content"), true);
 
@@ -34,25 +32,26 @@ export class AppView extends Backbone.View {
         this.allCheckbox = this.$(".mark-all-done")[0];
         this.statsTemplate = _.template($('#stats-template').html());
 
-        this.Nests.bind('add', this.addNest);
-        this.Nests.bind('all', this.render);
+        this.nests.bind('add', this.addNest);
+        this.nests.bind('all', this.render);
     }
 
-    render() {
-        var hatched = this.Nests.hatched().length;
-        var remaining = this.Nests.remaining().length;
+    render(): Backbone.View<Backbone.Model> {
+        var hatched = this.nests.hatched().length;
+        var remaining = this.nests.remaining().length;
 
         this.$('#nest-stats').html(this.statsTemplate({
-            total: this.Nests.length,
+            total: this.nests.length,
             hatched: hatched,
             remaining: remaining
         }));
 
         this.allCheckbox.checked = !remaining;
+        return this;
     }
 
-    addNest(nest) {
-        var view = new NestView.NestView({ model: nest });
+    addNest(nest: Nest) {
+        var view = new NestView({ model: nest });
         this.$("#nest-list").append(view.render().el);
     }
 
@@ -62,9 +61,11 @@ export class AppView extends Backbone.View {
         };
     }
 
-    createOnEnter(e) {
+    createOnEnter(e: JQueryKeyEventObject) {
         if (e.keyCode != 13) return;
-        this.Nests.create(this.newAttributes());
+        this.nests.create(this.newAttributes());
         this.input.val('');
     }
 }
+
+export = AppView;

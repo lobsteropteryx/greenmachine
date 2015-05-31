@@ -1,19 +1,18 @@
-/* Globals - jQuery, $, Backbone, _ */
-/// <reference path="lib/jquery/jquery.d.ts"/>
-/// <reference path="lib/lodash/lodash.d.ts"/>
-/// <reference path="lib/backbone/backbone.d.ts"/>
-
+/// <reference path="_references.d.ts" />
 
 require.config({
     baseUrl: "js",
     paths: {
         "jquery": 'lib/jquery/jquery-2.1.4.min',
-        "underscore": 'lib/lodash/lodash-min',
+        "lodash": 'lib/lodash/lodash-min',
         "backbone": 'lib/backbone/backbone-min',
         "text": 'lib/require/text'
     },
     shim: {
-        underscore: {
+        jquery: {
+            exports: '$'
+        },
+        lodash: {
             exports: '_'
         },
         backbone: {
@@ -23,10 +22,11 @@ require.config({
     }
 });
 
+
 import $ = require('jquery');
 import AppView = require('views/app-view');
 
 // Load the application once the DOM is ready
 $(() => {
-    new AppView.AppView();
+    new AppView();
 });
