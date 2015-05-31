@@ -2,8 +2,8 @@
 /// <reference path="../typings/lodash/lodash.d.ts"/>
 /// <reference path="../typings/backbone/backbone.d.ts"/>
 
-import NestCollection = require('../collections/nest-collection');
-import NestView = require('../views/nest-view');
+import NestCollection = require('collections/nest-collection');
+import NestView = require('views/nest-view');
 
 export class AppView extends Backbone.View<any> {
 
