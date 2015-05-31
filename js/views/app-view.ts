@@ -1,6 +1,6 @@
-/// <reference path="../typings/jquery/jquery.d.ts"/>
-/// <reference path="../typings/lodash/lodash.d.ts"/>
-/// <reference path="../typings/backbone/backbone.d.ts"/>
+/// <reference path="../annotations/jquery/jquery.d.ts"/>
+/// <reference path="../annotations/lodash/lodash.d.ts"/>
+/// <reference path="../annotations/backbone/backbone.d.ts"/>
 
 import NestCollection = require('collections/nest-collection');
 import NestView = require('views/nest-view');

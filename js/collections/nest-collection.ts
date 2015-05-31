@@ -1,5 +1,8 @@
+/// <reference path="../annotations/jquery/jquery.d.ts"/>
+/// <reference path="../annotations/lodash/lodash.d.ts"/>
+/// <reference path="../annotations/backbone/backbone.d.ts"/>
 
-import Nest = require('models/nest-model');
+import Nest = require('../models/nest-model');
 
 export class NestCollection extends Backbone.Collection<Nest.Nest> {
 
@@ -8,7 +11,7 @@ export class NestCollection extends Backbone.Collection<Nest.Nest> {
 
     // Filter down the list of all nests that are hatched
     hatched() {
-        return this.filter(todo => todo.get('hatched'));
+        return this.filter(nest => nest.get('hatched'));
     }
 
     // Filter down the list to only nests that are still not hatched
