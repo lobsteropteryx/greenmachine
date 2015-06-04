@@ -1,12 +1,7 @@
-<script type="text/template" id="nest-template">
-    <div class="todo <%= done ? 'done' : '' %>">
-        <div class="display">
-            <input class="check" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-            <label class="todo-content"><%= content %></label>
-            <span class="todo-destroy"></span>
-        </div>
-        <div class="edit">
-            <input class="todo-input" type="text" value="<%= content %>" />
-        </div>
+<div class="nest <%= hatched ? 'hatched' : '' %>">
+    <div class="display">
+        <input class="check" type="checkbox" <%= hatched ? 'checked="checked"' : '' %> />
+        <label class="nest-content"><%= beach %></label>
+        <span class="nest-destroy"></span>
     </div>
-</script>
+</div>

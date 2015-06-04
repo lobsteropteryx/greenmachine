@@ -1,3 +1,5 @@
+import $ = require('jquery');
+import Backbone = require('backbone');
 import Nest = require('../models/nest-model');
 
 class NestCollection extends Backbone.Collection<Nest> {

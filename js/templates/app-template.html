@@ -1,16 +1,20 @@
-<script type="text/template" id="stats-template">
-    <% if (total) { %>
-    <span class="nest-count">
-          <span class="number"><%= remaining %></span>
-          <span class="word"><%= remaining == 1 ? 'nest' : 'tests' %></span> left.
-        </span>
-    <% } %>
-    <% if (hatched) { %>
-    <span class="hatched-clear">
-          <a href="#">
-              Clear <span class="number-done"><%= hatched %></span>
-              hatched <span class="word-done"><%= hatched == 1 ? 'item' : 'items' %></span>
-          </a>
-        </span>
-    <% } %>
-</script>
+<span>Hello Typescript!</span>
+<button id="clickButton">Clicky</button>
+<ul id="nest-list">
+
+</ul>
+<div id="nest-stats"></div>
+<% if (total) { %>
+<span class="nest-count">
+      <span class="number"><%= remaining %></span>
+      <span class="word"><%= remaining == 1 ? 'nest' : 'tests' %></span> left.
+    </span>
+<% } %>
+<% if (hatched) { %>
+<span class="hatched-clear">
+      <a href="#">
+          Clear <span class="number-done"><%= hatched %></span>
+          hatched <span class="word-done"><%= hatched == 1 ? 'item' : 'items' %></span>
+      </a>
+    </span>
+<% } %>
