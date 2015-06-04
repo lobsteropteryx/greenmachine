@@ -5,8 +5,8 @@
 /// <amd-dependency path="text!templates/app-template.html" />
 
 
-import NestCollection = require('collections/nest-collection');
-import NestView = require('views/nest-view');
+import NestCollection = require('../collections/nest-collection');
+import NestView = require('../views/nest-view');
 var appTemplate = require('text!templates/app-template.html');
 
 export class AppView extends Backbone.View<any> {
