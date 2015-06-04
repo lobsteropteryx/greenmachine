@@ -1,13 +1,10 @@
-/// <reference path="../annotations/jquery/jquery.d.ts"/>
-/// <reference path="../annotations/lodash/lodash.d.ts"/>
-/// <reference path="../annotations/backbone/backbone.d.ts"/>
-
-export class Nest extends Backbone.Model {
+/// <reference path="../_references.d.ts" />
+class Nest extends Backbone.Model {
 
     defaults() {
         return {
             hatched: false
-        }
+        };
     }
 
     initialize() {
@@ -18,3 +15,5 @@ export class Nest extends Backbone.Model {
         this.set("hatched", true);
     }
 }
+
+export = Nest;

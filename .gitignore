@@ -1,5 +1,12 @@
-js/*.js
-js/models/*.js
-js/views/*.js
-js/collections/*.js
+js/**/*.js
+
+# Vim ignores
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# JetBrains IDEs ignores
 .idea/*

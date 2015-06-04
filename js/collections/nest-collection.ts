@@ -1,13 +1,6 @@
-/// <reference path="../annotations/jquery/jquery.d.ts"/>
-/// <reference path="../annotations/lodash/lodash.d.ts"/>
-/// <reference path="../annotations/backbone/backbone.d.ts"/>
-
 import Nest = require('../models/nest-model');
 
-export class NestCollection extends Backbone.Collection<Nest.Nest> {
-
-    // Reference to this collection's model.
-    model = Nest.Nest;
+class NestCollection extends Backbone.Collection<Nest> {
 
     // Filter down the list of all nests that are hatched
     hatched() {
@@ -19,3 +12,5 @@ export class NestCollection extends Backbone.Collection<Nest.Nest> {
         return this.without.apply(this, this.hatched());
     }
 }
+
+export = NestCollection;
