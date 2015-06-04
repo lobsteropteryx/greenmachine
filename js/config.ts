@@ -8,8 +8,8 @@ require.config({
         'collections': 'js/collections',
         'templates': 'js/templates',
         'jquery': 'bower_components/jquery/dist/jquery.min',
-        'underscore': 'bower_components/lodash/lodash.min',
-        'backbone': 'bower_components/backbone/backbone.min',
+        'lodash': 'bower_components/lodash/lodash.min',
+        'backbone': 'bower_components/backbone/backbone-min',
         'text': 'bower_components/requirejs-text/text'
     },
 
@@ -18,13 +18,19 @@ require.config({
             exports: '$'
         },
 
-        underscore: {
+        lodash: {
             exports: '_'
         },
 
         backbone: {
-            deps: ['underscore', 'jquery'],
+            deps: ['lodash', 'jquery'],
             exports: 'Backbone'
+        }
+    },
+
+    map: {
+        "*": {
+            underscore: "bower_components/lodash/lodash.js"
         }
     }
 });

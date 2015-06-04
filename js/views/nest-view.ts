@@ -5,17 +5,20 @@ import _ = require('lodash');
 import Backbone = require('backbone');
 import Nest = require('../models/nest-model');
 
-export class NestView extends Backbone.View {
+class NestView extends Backbone.View<Backbone.Model> {
 
     template: (data: any) => string;
     model: Nest;
     input: JQuery;
+    tagName: string;
 
     constructor (options?: Backbone.ViewOptions<Nest>) {
         this.tagName = "li";
 
-        this.events = <any>{
-            "click .check": "toggleHatched",
+        this.events = function () {
+            return {
+                "click .check": "toggleHatched"
+            }
         };
 
         super(options);

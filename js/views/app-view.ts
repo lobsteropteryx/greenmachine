@@ -26,10 +26,10 @@ class AppView extends Backbone.View<Backbone.Model> {
 
         this.setElement($("#content"), true);
 
-        _.bindAll(this, 'addOne', 'addAll', 'render', 'toggleAllComplete');
+        _.bindAll(this, 'addNest', 'render');
 
         this.input = this.$("#new-todo");
-        this.allCheckbox = this.$(".mark-all-done")[0];
+        this.allCheckbox = <HTMLInputElement>this.$(".mark-all-done")[0];
         this.statsTemplate = _.template($('#stats-template').html());
 
         this.nests.bind('add', this.addNest);
