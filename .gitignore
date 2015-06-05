@@ -1,3 +1,5 @@
+bower_components/
+
 js/**/*.js
 
 # Vim ignores
