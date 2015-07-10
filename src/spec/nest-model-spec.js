@@ -6,4 +6,3 @@ define(["require", "exports", '../js/models/nest-model'], function (require, exp
         });
     });
 });
-//# sourceMappingURL=nest-model-spec.js.map
