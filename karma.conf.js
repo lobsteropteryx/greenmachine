@@ -15,12 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'spec/test-main.js',
+        'src/spec/test-main.js',
         { pattern: 'bower_components/jquery/dist/jquery.min.js', included: false},
         { pattern: 'bower_components/lodash/lodash.min.js', included: false},
         { pattern: 'bower_components/backbone/backbone-min.js', included: false},
-        { pattern: 'js/**/*.js', included: false },
-        { pattern: 'spec/*.js', included: false}
+        { pattern: 'src/js/**/*.js', included: false },
+        { pattern: 'src/spec/*.js', included: false}
     ],
 
 
