@@ -1,0 +1,30 @@
+{
+  "name": "greenmachine",
+  "version": "0.0.0",
+  "description": "turtle power",
+  "main": "config",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lobsteropteryx/greenmachine.git"
+  },
+  "keywords": [
+    "turtle"
+  ],
+  "author": "Chris Lasher, Ian Firkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lobsteropteryx/greenmachine/issues"
+  },
+  "homepage": "https://github.com/lobsteropteryx/greenmachine",
+  "devDependencies": {
+    "karma": "~0.12.36",
+    "jasmine-core": "~2.3.4",
+    "karma-jasmine": "~0.3.5",
+    "karma-chrome-launcher": "~0.1.12",
+    "requirejs": "~2.1.18",
+    "karma-requirejs": "~0.2.2"
+  }
+}
