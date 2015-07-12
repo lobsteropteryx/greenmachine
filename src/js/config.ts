@@ -3,10 +3,10 @@
 require.config({
     baseUrl: "/",
     paths: {
-        'views': 'js/views',
-        'models': 'js/models',
-        'collections': 'js/collections',
-        'templates': 'js/templates',
+        'views': 'src/js/views',
+        'models': 'src/js/models',
+        'collections': 'src/js/collections',
+        'templates': 'src/js/templates',
         'jquery': 'bower_components/jquery/dist/jquery.min',
         'lodash': 'bower_components/lodash/lodash.min',
         'backbone': 'bower_components/backbone/backbone-min',
@@ -35,4 +35,4 @@ require.config({
     }
 });
 
-require(['js/app']);
+require(['src/js/app']);
