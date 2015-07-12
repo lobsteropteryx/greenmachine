@@ -1,7 +1,8 @@
 bower_components/
 node_modules/
 
-js/**/*.js
+src/**/*.js
+src/**/*.js.map
 
 # Vim ignores
 [._]*.s[a-w][a-z]
