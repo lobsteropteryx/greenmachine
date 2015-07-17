@@ -30,7 +30,7 @@ require.config({
 
     map: {
         "*": {
-            underscore: "bower_components/lodash/lodash.js"
+            lodash: "bower_components/lodash/lodash.min.js"
         }
     }
 });

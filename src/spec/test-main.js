@@ -19,7 +19,7 @@ require.config({
 
     paths: {
         'jquery': 'bower_components/jquery/dist/jquery.min',
-        'underscore': 'bower_components/lodash/lodash.min',
+        'lodash': 'bower_components/lodash/lodash.min',
         'backbone': 'bower_components/backbone/backbone-min',
         'spec': 'spec'
     },

@@ -1,7 +1,9 @@
 /// <reference path="../_references.d.ts" />
 /// <amd-dependency path="text!templates/app-template.html" />
 import $ = require('jquery');
+import _ = require('lodash');
 import Backbone = require('backbone');
+import BeachCollection = require('../collections/beach-collection');
 import Nest = require('../models/nest-model');
 import NestCollection = require('../collections/nest-collection');
 import NestView = require('./nest-view');
@@ -13,6 +15,7 @@ class AppView extends Backbone.View<Backbone.Model> {
     input: JQuery;
     allCheckbox: HTMLInputElement;
     statsTemplate: (params: any) => string;
+    beaches: BeachCollection;
     nests: NestCollection;
 
     constructor () {
@@ -26,6 +29,7 @@ class AppView extends Backbone.View<Backbone.Model> {
 
         super();
 
+        this.beaches = new BeachCollection();
         this.nests = new NestCollection();
 
         this.setElement($("#content"), true);
