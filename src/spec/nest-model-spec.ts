@@ -2,11 +2,9 @@
 /// <reference path="../js/annotations/jasmine/jasmine.d.ts" />
 import Nest = require('../js/models/nest-model');
 
-describe("Fake test", () => {
-    var nest = new Nest();
-
-    it("Can create a nest", () => {
+describe("Nest", () => {
+    it("Can be instantiated", () => {
+        var nest = new Nest();
         expect(nest).toEqual(jasmine.any(Nest));
     });
 });
-

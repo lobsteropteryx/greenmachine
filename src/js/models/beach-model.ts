@@ -3,21 +3,21 @@ import Backbone = require('backbone');
 
 interface IBeach {
     name: string;
+    nests: string;
 }
 
 class Beach extends Backbone.Model implements IBeach {
 
     get name(): string { return this.get('name'); }
+    set name(value: string) { this.set('name', value); }
+
+    get nests(): string { return this.get('nests'); }
+    set nests(value: string) { this.set('nests', value); }
 
     constructor(args: IBeach) {
         super();
         this.name = args.name;
-    }
-
-    initialize() {
-        if (!this.get('name')) {
-            throw new Error("'name' is a required field");
-        }
+        this.nests = args.nests;
     }
 }
 
