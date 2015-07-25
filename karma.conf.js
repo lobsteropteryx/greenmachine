@@ -21,7 +21,8 @@ module.exports = function(config) {
         { pattern: 'bower_components/lodash/lodash.min.js', included: false},
         { pattern: 'bower_components/requirejs-text/text.js', included: false},
         { pattern: 'src/js/**/*.js', included: false },
-        { pattern: 'src/spec/*.js', included: false}
+        { pattern: 'src/spec/*.js', included: false},
+        { pattern: 'src/js/templates/*.html', included: false}
     ],
 
 
