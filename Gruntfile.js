@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         karma: {
-            continuous: {
+            single: {
                 configFile: 'karma.conf.js',
                 singleRun: true,
                 browsers: ['PhantomJS']
@@ -24,5 +24,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-typescript');
     
-    grunt.registerTask('default', ['typescript', 'karma:continuous']);
+    grunt.registerTask('default', ['typescript', 'karma:single']);
 };
