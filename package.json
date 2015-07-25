@@ -28,6 +28,7 @@
     "karma-requirejs": "~0.2.2",
     "grunt": "~0.4.5",
     "grunt-karma": "~0.11.2",
-    "karma-phantomjs-launcher": "~0.2.0"
+    "karma-phantomjs-launcher": "~0.2.0",
+    "grunt-typescript": "~0.6.2"
   }
 }

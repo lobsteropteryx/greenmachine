@@ -1,10 +1,6 @@
 /// <reference path="../_references.d.ts" />
 import Backbone = require('backbone');
-
-interface IBeach {
-    name: string;
-    nests: string;
-}
+import IBeach = require('../interfaces/IBeach')
 
 class Beach extends Backbone.Model implements IBeach {
 
