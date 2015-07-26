@@ -10,6 +10,10 @@ describe("Beach", () => {
         jasmine.Ajax.install();
     });
 
+    afterEach(function () {
+        jasmine.Ajax.uninstall();
+    });
+
     it("Can be instantiated", () => {
         var beach = new Beach({name: 'Beach1', nests: '/api/v1/nests/?beach=Beach1'});
         expect(beach).toEqual(jasmine.any(Beach));
