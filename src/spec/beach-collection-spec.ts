@@ -25,15 +25,24 @@ describe("Beach Collection", () => {
         expect(beaches.length).toBe(0);
     });
 
-    it("Can fetch a single record from the API", () => {
+    it("Can fetch a single record from the API", (done) => {
         var request, beaches = new BeachCollection();
-        beaches.fetch();
+
+        spyOn($, 'ajax').and.callThrough();
+
+        beaches.fetch().then(function () {
+            expect(beaches.length).toBe(1);
+        });
+
         request = jasmine.Ajax.requests.mostRecent();
         request.respondWith({
             status: 200,
             responseText: '[{id: 1}]'
         });
-        expect(beaches.length).toBe(1);
+
+        $.ajax.calls.argsFor(0)[1].success();
+
+        done();
     });
 });
 

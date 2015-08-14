@@ -20,7 +20,7 @@ require.config({
     paths: {
         'jquery': 'bower_components/jquery/dist/jquery.min',
         'lodash': 'bower_components/lodash/lodash.min',
-        'backbone': 'bower_components/backbone/backbone-min',
+        'backbone': 'bower_components/backbone/backbone',
         'views': 'src/js/views',
         'models': 'src/js/models',
         'collections': 'src/js/collections',

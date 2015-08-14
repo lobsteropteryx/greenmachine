@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         'src/spec/test-main.js',
-        { pattern: 'bower_components/backbone/backbone-min.js', included: false},
+        { pattern: 'bower_components/backbone/backbone.js', included: false},
         { pattern: 'bower_components/jquery/dist/jquery.min.js', included: false},
         { pattern: 'bower_components/lodash/lodash.min.js', included: false},
         { pattern: 'bower_components/requirejs-text/text.js', included: false},
@@ -69,6 +69,6 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
   });
 };

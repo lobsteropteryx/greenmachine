@@ -9,7 +9,7 @@ require.config({
         'templates': 'src/js/templates',
         'jquery': 'bower_components/jquery/dist/jquery.min',
         'lodash': 'bower_components/lodash/lodash.min',
-        'backbone': 'bower_components/backbone/backbone-min',
+        'backbone': 'bower_components/backbone/backbone',
         'text': 'bower_components/requirejs-text/text'
     },
 
