@@ -25,24 +25,21 @@ describe("Beach Collection", () => {
         expect(beaches.length).toBe(0);
     });
 
-    it("Can fetch a single record from the API", (done) => {
+    xit("Can fetch a single record from the API", (done) => {
         var request, beaches = new BeachCollection();
-
-        spyOn($, 'ajax').and.callThrough();
-
-        beaches.fetch().then(function () {
-            expect(beaches.length).toBe(1);
-        });
+        beaches.fetch();
 
         request = jasmine.Ajax.requests.mostRecent();
         request.respondWith({
             status: 200,
-            responseText: '[{id: 1}]'
+            responseText: '[{"name": "James Bond", "nests": ""}]'
         });
 
-        $.ajax.calls.argsFor(0)[1].success();
-
-        done();
+        expect(beaches.length).toBe(1);
+        expect(beaches[1].toEqual({
+            name: "James Bond",
+            nests: ""
+        }));
     });
 });
 
