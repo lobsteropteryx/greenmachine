@@ -1,7 +1,7 @@
 /// <reference path="../js/_references.d.ts" />
 /// <reference path="../js/annotations/jasmine/jasmine.d.ts" />
 /// <reference path="../js/annotations/jasmine-ajax/jasmine-ajax.d.ts" />
-
+import Beach = require('../js/models/beach-model');
 import BeachCollection = require('../js/collections/beach-collection');
 
 describe("Beach Collection", () => {
@@ -25,8 +25,9 @@ describe("Beach Collection", () => {
         expect(beaches.length).toBe(0);
     });
 
-    xit("Can fetch a single record from the API", (done) => {
-        var request, beaches = new BeachCollection();
+    it("Can fetch a single record from the API", () => {
+        var request:JasmineAjaxRequest,
+            beaches = new BeachCollection();
         beaches.fetch();
 
         request = jasmine.Ajax.requests.mostRecent();
@@ -36,10 +37,9 @@ describe("Beach Collection", () => {
         });
 
         expect(beaches.length).toBe(1);
-        expect(beaches[1].toEqual({
-            name: "James Bond",
-            nests: ""
-        }));
+        var beach = beaches.at(0);
+        expect(beach.get('name')).toBe("James Bond");
+        expect(beach.get('nests')).toBe("");
     });
 });
 
