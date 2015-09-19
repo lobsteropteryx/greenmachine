@@ -15,7 +15,8 @@ module.exports = function(grunt) {
                     target: 'es5', //or es3 
                     basePath: '',
                     sourceMap: true,
-                    declaration: false
+                    declaration: false,
+                    noImplicitAny: true
                 }
             }
         }
