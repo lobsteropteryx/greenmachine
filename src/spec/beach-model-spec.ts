@@ -17,6 +17,8 @@ describe("Beach", () => {
     it("Can be instantiated", () => {
         var beach = new Beach({name: 'Beach1', nests: '/api/v1/nests/?beach=Beach1'});
         expect(beach).toEqual(jasmine.any(Beach));
+        expect(beach.name).toEqual('Beach1');
+        expect(beach.nests).toEqual('/api/v1/nests/?beach=Beach1');
     });
 });
 

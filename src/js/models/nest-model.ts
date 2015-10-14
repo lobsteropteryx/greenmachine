@@ -7,8 +7,7 @@ class Nest extends Backbone.Model {
 
     defaults() {
         return {
-            hatched: false,
-            beach: 'Beach'
+            hatched: false
         };
     }
 
