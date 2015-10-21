@@ -40,7 +40,6 @@ class NestView extends Backbone.View<Backbone.Model> {
 
     // Toggle the `"hatched"` state of the model.
     toggleHatched() {
-        this.model.toggle();
     }
 }
 

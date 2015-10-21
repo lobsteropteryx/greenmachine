@@ -59,8 +59,6 @@ class AppView extends Backbone.View<Backbone.Model> {
     }
 
     addNest() {
-        var view = new NestView({ model: new Nest() });
-        this.$("#nest-list").append(view.render().el);
     }
 
     newAttributes() {
