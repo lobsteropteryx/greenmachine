@@ -3,6 +3,7 @@ import Backbone = require('backbone');
 import Nest = require('../models/nest-model');
 
 class NestCollection extends Backbone.Collection<Nest> {
+    url:string = 'api/v1/nests';
 
     // Filter down the list of all nests that are hatched
     hatched() {
