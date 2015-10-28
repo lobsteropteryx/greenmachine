@@ -62,7 +62,7 @@ describe("Nest Collection", () => {
 
     });
 
-    xit("Can fetch a single record from the API", () => {
+    it("Can fetch a single record from the API", () => {
         var request:JasmineAjaxRequest,
             nests = new NestCollection();
         nests.fetch();
@@ -70,7 +70,7 @@ describe("Nest Collection", () => {
         request = jasmine.Ajax.requests.mostRecent();
         request.respondWith({
             status: 200,
-            responseText: '[{"layDate":"2015-11-15T08:00:00.000Z","hatchDate":"2015-11-15T08:00:00.000Z","hatched":false,"parentId":1,"species":1,"evidence":1,"locationDescription":"Near the palm tree."}]'
+            responseText: '[{"layDate":"2015-11-15T08:00:00.000Z","hatchDate":"2015-11-15T08:00:00.000Z","hatched":false,"parentId":1,"species":0,"evidence":0,"locationDescription":"Near the palm tree."}]'
         });
 
         expect(nests.length).toBe(1);
@@ -84,21 +84,4 @@ describe("Nest Collection", () => {
             locationDescription: 'Near the palm tree.'
         });
     });
-
-    //it("Can fetch a two records from the API", () => {
-        //var request:JasmineAjaxRequest,
-            //nests = new NestCollection();
-        //nests.fetch();
-
-        //request = jasmine.Ajax.requests.mostRecent();
-        //request.respondWith({
-            //status: 200,
-            //responseText: '[{"name": "James Bond", "nests": ""}, {"name": "Jaws", "nests": ""}]'
-        //});
-
-        //expect(nests.length).toBe(2);
-        //checkNestAttributes(nests.at(0), "James Bond", "");
-        //checkNestAttributes(nests.at(1), "Jaws", "");
-    //});
 });
-
