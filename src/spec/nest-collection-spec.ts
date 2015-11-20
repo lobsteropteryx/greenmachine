@@ -70,13 +70,13 @@ describe("Nest Collection", () => {
         request = jasmine.Ajax.requests.mostRecent();
         request.respondWith({
             status: 200,
-            responseText: '[{"layDate":"2015-11-15T08:00:00.000Z","hatchDate":"2015-11-15T08:00:00.000Z","hatched":false,"parentId":1,"species":0,"evidence":0,"locationDescription":"Near the palm tree."}]'
+            responseText: '[{"layDate":"2015-11-15T00:00:00.000Z","hatchDate":"2015-11-15T00:00:00.000Z","hatched":false,"parentId":1,"species":0,"evidence":0,"locationDescription":"Near the palm tree."}]'
         });
 
         expect(nests.length).toBe(1);
         checkNestAttributes(nests.at(0), {
-            layDate: new Date(2015, 10, 15),
-            hatchDate: new Date(2015, 10, 15),
+            layDate: new Date("2015-11-15T00:00:00.000Z"),
+            hatchDate: new Date("2015-11-15T00:00:00.000Z"),
             hatched: false,
             parentId: 1,
             species: Species.Hawksbill,
