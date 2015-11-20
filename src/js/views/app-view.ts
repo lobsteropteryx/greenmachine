@@ -28,17 +28,20 @@ class AppView extends Backbone.View<Backbone.Model> {
         };
 
         super();
-
         this.beaches = new BeachCollection();
         this.nests = new NestCollection();
         this.setElement($("#content"), true);
-    }
+    };
+
+    getData(): JQueryXHR {
+        return this.beaches.fetch();
+    };
 
     render(): Backbone.View<Backbone.Model> {
         var compiledTemplate: any = _.template(appTemplate);
         this.$el.html(compiledTemplate({beaches: this.beaches.toJSON()}));
         return this;
-    }
+    };
 }
 
 export = AppView;

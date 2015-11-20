@@ -6,5 +6,7 @@ import AppView = require('views/app-view');
 // Load the application once the DOM is ready
 $(() => {
     var app = new AppView();
-    app.render();
+    app.getData().then(() => {
+        app.render();
+    });
 });
