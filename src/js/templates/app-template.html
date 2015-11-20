@@ -1,20 +1,6 @@
-<span>Hello Typescript!</span>
 <button id="clickButton">Clicky</button>
-<ul id="nest-list">
-
-</ul>
-<div id="nest-stats"></div>
-<% if (total) { %>
-<span class="nest-count">
-      <span class="number"><%= remaining %></span>
-      <span class="word"><%= remaining == 1 ? 'nest' : 'nests' %></span> left.
-    </span>
-<% } %>
-<% if (hatched) { %>
-<span class="hatched-clear">
-      <a href="#">
-          Clear <span class="number-done"><%= hatched %></span>
-          hatched <span class="word-done"><%= hatched == 1 ? 'nest' : 'nests' %></span>
-      </a>
-    </span>
-<% } %>
+<select id="beach-select">
+  <% _.each(beaches, function (beach) { %>
+  <option><%= beach.name %></option>
+  <% }); %>
+</select>

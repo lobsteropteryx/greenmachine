@@ -24,53 +24,19 @@ class AppView extends Backbone.View<Backbone.Model> {
 //            "keyup #new-todo": "showTooltip",
 //            "click .todo-clear a": "clearCompleted",
 //            "click .mark-all-done": "toggleAllComplete"
-              "click #clickButton": "addNest"
+              //"click #clickButton": "addNest"
         };
 
         super();
 
         this.beaches = new BeachCollection();
-        this.nests = new NestCollection();
-
         this.setElement($("#content"), true);
-
-        _.bindAll(this, 'addNest', 'render');
-
-        this.input = this.$("#new-todo");
-        this.allCheckbox = <HTMLInputElement>this.$(".mark-all-done")[0];
-        this.statsTemplate = _.template(appTemplate);
-
-        this.nests.bind('add', this.addNest);
-        this.nests.bind('all', this.render);
     }
 
     render(): Backbone.View<Backbone.Model> {
-        var hatched = this.nests.hatched().length;
-        var remaining = this.nests.remaining().length;
-
-        this.$el.html(this.statsTemplate({
-            total: this.nests.length,
-            hatched: hatched,
-            remaining: remaining
-        }));
-
-        //this.allCheckbox.checked = !remaining;
+        var compiledTemplate: any = _.template(appTemplate);
+        this.$el.html(compiledTemplate({beaches: this.beaches.toJSON()}));
         return this;
-    }
-
-    addNest() {
-    }
-
-    newAttributes() {
-        return {
-            hatched: false
-        };
-    }
-
-    createOnEnter(e: JQueryKeyEventObject) {
-        if (e.keyCode != 13) return;
-        this.nests.create(this.newAttributes());
-        this.input.val('');
     }
 }
 
