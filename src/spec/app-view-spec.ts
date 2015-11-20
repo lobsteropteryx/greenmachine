@@ -9,10 +9,12 @@ describe("AppView", () => {
         var appview = new AppView();
         expect(appview).toEqual(jasmine.any(AppView));
     });
+
     it("Has a beach collection", () => {
         var appview = new AppView();
         expect(appview.beaches).toEqual(jasmine.any(BeachCollection));
     });
+
     it("Has a nest collection", () => {
         var appview = new AppView();
         expect(appview.nests).toEqual(jasmine.any(NestCollection));
